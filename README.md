@@ -1,2 +1,2 @@
 # OTUS
-Hometasks repository
+Hometasks repository by Popova Margarita
