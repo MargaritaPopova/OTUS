@@ -1,0 +1,4 @@
+id, name, status, joined, email, password
+1, john, active, 7 Feb 2002, john@mail.com, 123
+2, david, inactive, 23 March 2006, david@mail.com, 345
+3, betty, active, 18 May 2009, betty@boop.com, 678
