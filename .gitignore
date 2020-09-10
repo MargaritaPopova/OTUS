@@ -138,3 +138,8 @@ dmypy.json
 cython_debug/
 
 .db
+.idea/
+lesson3_git_shell/.idea/
+lesson9_async_DB/example2.db
+redis-6.0.7.tar.gz
+redis-6.0.7/
