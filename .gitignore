@@ -137,9 +137,11 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-.db
+*.db
 .idea/
 lesson3_git_shell/.idea/
-lesson9_async_DB/example2.db
 redis-6.0.7.tar.gz
 redis-6.0.7/
+/lesson9_async_DB/Untitled.ipynb
+/lesson9_async_DB/homework
+/lesson9_async_DB/
