@@ -19,12 +19,6 @@ class User(Base):
     email = Column(String(50), unique=True)
     posts = relationship("Post", back_populates="author")
 
-    def __str__(self):
-        return f"{self.__class__.__name__}(id={self.id}, username={self.username!r})"
-
-    def __repr__(self):
-        return str(self)
-
 
 class Post(Base):
 
@@ -35,12 +29,6 @@ class Post(Base):
     title = Column(String(256), nullable=False)
     body = Column(String(256), nullable=False)
     author = relationship(User, back_populates="posts")
-
-    def __str__(self):
-        return f"{self.__class__.__name__}(id={self.id}, title={self.title!r}, author={self.author})"
-
-    def __repr__(self):
-        return str(self)
 
 
 def make_migrations():

@@ -27,13 +27,6 @@ POSTS = Table(
 )
 
 
-def print_results(results):
-    for index, row in enumerate(results):
-        if index == 0:
-            print(" | ".join([str(name).ljust(15) for name in row.keys()]))
-        print(" | ".join([str(value).ljust(15) for value in row.values()]))
-
-
 async def test_select():
     u = await pg.query(USERS.select().where(USERS.c.id == 3))
     q = await pg.query(POSTS.select().where(POSTS.c.user_id == dict(u[0])['id']))
