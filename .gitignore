@@ -142,6 +142,7 @@ cython_debug/
 lesson3_git_shell/.idea/
 redis-6.0.7.tar.gz
 redis-6.0.7/
-/lesson9_async_DB/Untitled.ipynb
-/lesson9_async_DB/homework
-/lesson9_async_DB/
+/lesson9_examples/Untitled.ipynb
+/lesson9_asyncDB/homework
+/lesson9_examples/
+/lesson9_asyncDB/homework
