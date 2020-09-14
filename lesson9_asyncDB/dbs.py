@@ -48,6 +48,3 @@ def make_migrations():
     session = Session()
     session.close()
 
-
-if __name__ == "__main__":
-    make_migrations()

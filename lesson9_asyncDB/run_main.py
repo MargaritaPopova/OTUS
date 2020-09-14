@@ -2,7 +2,9 @@ import asyncio
 from asyncpg import DataError
 from asyncpgsa import pg
 from sqlalchemy import MetaData, Table, Column, Integer, String
-from lesson9_async_DB.request_json import make_requests
+from lesson9_asyncDB.request_json import make_requests
+from lesson9_asyncDB.dbs import make_migrations
+
 
 metadata = MetaData()
 
@@ -41,22 +43,23 @@ async def test_select():
 async def main():
     await pg.init("postgresql://postgres:password@localhost/homework")
     print("Connection established")
+    api_res = await make_requests()
 
     try:
-        # for res in api_res[0]:
-        #     query = USERS.insert().values(id=res['id'],
-        #                           name=res['name'],
-        #                           username=res['username'],
-        #                           email=res['email'],
-        #                           )
-        #     await pg.query(query)
-        # for res in api_res[1]:
-        #     query = POSTS.insert().values(id=res['id'],
-        #                                   user_id=res['userId'],
-        #                                   title=res['title'],
-        #                                   body=res['body'],
-        #                                   )
-        #     await pg.query(query)
+        for res in api_res[0]:
+            query = USERS.insert().values(id=res['id'],
+                                          name=res['name'],
+                                          username=res['username'],
+                                          email=res['email'],
+                                          )
+            await pg.query(query)
+        for res in api_res[1]:
+            query = POSTS.insert().values(id=res['id'],
+                                          user_id=res['userId'],
+                                          title=res['title'],
+                                          body=res['body'],
+                                          )
+            await pg.query(query)
         await test_select()
         all_users = await pg.query(USERS.select())
         all_posts = await pg.query(POSTS.select())
@@ -68,5 +71,5 @@ async def main():
 
 
 if __name__ == '__main__':
-    api_res = asyncio.run(make_requests())
+    make_migrations()
     asyncio.run(main())
