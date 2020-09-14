@@ -62,6 +62,7 @@ async def main():
     except DataError as e:
         print("Something went wrong with the data:", e)
 
+    await pg.pool.close()
 
 if __name__ == '__main__':
     make_migrations()
