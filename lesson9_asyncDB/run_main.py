@@ -28,6 +28,9 @@ POSTS = Table(
 
 
 async def test_select():
+    """
+    Test queries to database, to show relation between 'users' and 'posts'
+    """
     u = await pg.query(USERS.select().where(USERS.c.id == 3))
     q = await pg.query(POSTS.select().where(POSTS.c.user_id == dict(u[0])['id']))
     print("Query executed", dict(u[0]), "\n", dict(q[0]))
@@ -63,6 +66,7 @@ async def main():
         print("Something went wrong with the data:", e)
 
     await pg.pool.close()
+
 
 if __name__ == '__main__':
     make_migrations()

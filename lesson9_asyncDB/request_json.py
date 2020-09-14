@@ -39,7 +39,6 @@ async def fetch_json_list(service: Service):
 
 
 async def make_requests():
-
     done, pending = await asyncio.wait(
         [fetch_json_list(s) for s in SERVICES],
         timeout=5,
