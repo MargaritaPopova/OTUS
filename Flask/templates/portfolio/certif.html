@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+
+{% block main %}
+
+
+
+<ul>
+    {% for item in context.certif_list %}
+    <li> <a href="{{item.url}}" target="_blank"> {{item.name}} </a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

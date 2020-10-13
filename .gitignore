@@ -146,3 +146,5 @@ redis-6.0.7/
 /lesson9_asyncDB/homework
 /lesson9_examples/
 /lesson9_asyncDB/homework
+/Flask/templates/products/
+/Flask/views/product.py
