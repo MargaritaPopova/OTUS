@@ -8,7 +8,6 @@ ADD . /app/
 RUN pip install pipenv
 COPY Pipfile* /app/
 RUN pipenv lock --requirements > requirements.txt
-RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install psycopg2-binary
 

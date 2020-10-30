@@ -7,6 +7,13 @@
 <body>
 {% block main %}
     {{ name }}
+
+<ul>
+    {% for model in test_models %}
+    <li> {{model.name }} {{model.type}}</li>
+    {% endfor %}
+
+</ul>
 {% endblock %}
 </body>
 </html>
