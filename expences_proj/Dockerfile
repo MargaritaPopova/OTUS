@@ -11,3 +11,4 @@ RUN pip install -r requirements.txt
 RUN pip install psycopg2-binary
 
 COPY . /app/
+
