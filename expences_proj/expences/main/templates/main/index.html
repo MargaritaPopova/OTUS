@@ -5,8 +5,12 @@
     <title>Expences</title>
 </head>
 <body>
-{% block main %}
 
+{% block main %}
+{{ name }}
+<ul>
+<li><a href="{%  url 'main:list' %}">  List of all currencies </a></li>
+</ul>
 {% endblock %}
 </body>
 </html>

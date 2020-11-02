@@ -1,16 +1,28 @@
 from django.shortcuts import render
+from django.views import View
 from django.views.generic import ListView, DetailView
-from .models import TestModel
+from .models import Currency
 
 
-class MainView(ListView):
+class MainView(View):
 
+    template_name = 'main/index.html'
+
+    def get(self, request):
+        context = {
+            'name': 'This is the main'
+        }
+        return render(request, self.template_name, context)
+
+
+class ModelsListView(ListView):
+
+    model = Currency
     template_name = 'main/models_list.html'
-    model = TestModel
 
 
 class ModelView(DetailView):
 
-    model = TestModel
+    model = Currency
     template_name = 'main/detail.html'
 
