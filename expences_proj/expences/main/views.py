@@ -1,14 +1,16 @@
 from django.shortcuts import render
-from django.views.generic.base import View
+from django.views.generic import ListView, DetailView
 from .models import TestModel
 
 
-class MainView(View):
+class MainView(ListView):
 
-    template_name = 'main/index.html'
+    template_name = 'main/models_list.html'
+    model = TestModel
 
-    def get(self, request):
-        test_models = TestModel.objects.order_by('id')
 
-        context = {'name': 'Expences app', 'test_models': test_models}
-        return render(request, self.template_name, context)
+class ModelView(DetailView):
+
+    model = TestModel
+    template_name = 'main/detail.html'
+

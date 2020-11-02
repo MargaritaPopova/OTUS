@@ -3,7 +3,6 @@ RUN mkdir /app
 WORKDIR /app
 ADD . /app/
 
-
 # pipenv istallation
 RUN pip install pipenv
 COPY Pipfile* /app/

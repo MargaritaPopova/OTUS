@@ -1,0 +1,17 @@
+{% extends 'main/index.html' %}
+
+{% block main %}
+
+<h1>This is a list view</h1>
+
+
+{% if testmodel_list %}
+    <ul>
+    {% for model in testmodel_list %}
+        <li><a href="{% url 'main:detail' model.id %}">{{ model.name }} {{ model.type }}</a></li>
+    {% endfor %}
+    </ul>x
+{% else %}
+    <p>No testmodels are available.</p>
+{% endif %}
+{% endblock %}
