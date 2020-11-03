@@ -18,7 +18,7 @@ docker exec -u postgres <container_id> pg_dump -Cc > pg-backup-$(date -u +%Y-%m-
 
 **Restore database LOCALLY**   
 psql -U postgres postgres < pg-backup-2020-11-02.sql   
-*-U postgres* - от какого пользователя заходить в базу
+*-U postgres* - от какого пользователя заходить в базу  
 *postgres* - имя базы
 
 **Restore database IN CONTAINER**  
