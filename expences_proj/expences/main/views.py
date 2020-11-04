@@ -18,11 +18,11 @@ class MainView(View):
 class ModelsListView(ListView):
 
     model = Currency
-    template_name = 'main/models_list.html'
+    template_name = 'main/currency_list.html'
 
 
 class ModelView(DetailView):
 
     model = Currency
-    template_name = 'main/detail.html'
+    template_name = 'main/currency_detail.html'
 
