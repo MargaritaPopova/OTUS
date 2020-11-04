@@ -33,4 +33,7 @@ docker-compose exec web python expences/manage.py migrate
 **Migrate LOCALLY with env variables from .env file**  
 pipenv run python manage.py migrate
 
+**Find all occurrences of a string inside folder**  
+grep -ri <string_to_look_for> *
+
 
