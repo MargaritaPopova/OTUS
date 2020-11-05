@@ -4,6 +4,8 @@ services:
   web:
     build: ./
     command: python expences/manage.py runserver 0.0.0.0:8000
+    environment:
+      SQL_HOST: db
     volumes:
       - ./:/app/
     ports:
@@ -15,13 +17,12 @@ services:
 
   db:
     image: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./postgres_data/pgdata:/var/lib/postgresql/data/pgdata
 
 
-volumes:
-  postgres_data:
