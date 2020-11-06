@@ -1,14 +1,19 @@
-{% extends 'main/index.html' %}
+{% extends 'main/currency_index.html' %}
 
 {% block main %}
 
 <h1>This is a list view</h1>
 
-
+<li>
+        <a href="{% url 'main:create' %}">Add Currency</a>
+        </li>
 {% if currency_list %}
     <ul>
     {% for currency in currency_list %}
-        <li><a href="{% url 'main:detail' currency.id %}">{{ currency.name }} </a></li>
+        <li><a href="{% url 'main:detail' currency.id %}">{{ currency.name }} </a>
+        (<a href="{% url 'main:update' currency.id %}">Update</a> |
+          <a href="{% url 'main:delete' currency.id %}">Delete</a>) <br/>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
