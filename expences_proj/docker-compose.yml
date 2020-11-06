@@ -3,7 +3,9 @@ services:
 
   web:
     build: ./
-    command: python expences/manage.py runserver 0.0.0.0:8000
+    command: /bin/sh -c "python expences/manage.py migrate
+              && python expences/manage.py filldata
+              && python expences/manage.py runserver 0.0.0.0:8000"
     environment:
       SQL_HOST: db
     volumes:
@@ -16,7 +18,7 @@ services:
       - ./.en
 
   db:
-    image: postgres
+    image: postgres:13
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -24,5 +26,6 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - ./postgres_data/pgdata:/var/lib/postgresql/data/pgdata
+
 
 
