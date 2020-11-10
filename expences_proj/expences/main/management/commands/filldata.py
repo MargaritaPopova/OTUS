@@ -1,7 +1,7 @@
 import random
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
-from currency.models import Currency, Transaction, Category, Account
+from main.models import Currency, Transaction, Category, Account
 
 
 class Command(BaseCommand):
