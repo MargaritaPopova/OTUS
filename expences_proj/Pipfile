@@ -9,6 +9,7 @@ verify_ssl = true
 django = "==3.1.2"
 django-crispy-forms = "==1.9.2"
 django-debug-toolbar = "*"
+django-registration = "*"
 
 [requires]
 python_version = "3.8"
