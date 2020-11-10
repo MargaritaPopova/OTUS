@@ -4,7 +4,7 @@ from django.views import View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from main.models import Account
-from main.views import Menu
+from main.views import menu
 
 
 class AccountListView(ListView):
@@ -14,7 +14,7 @@ class AccountListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = Menu().items
+        context['menu'] = menu(self.request)
         return context
 
 
@@ -25,7 +25,7 @@ class AccountDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = Menu().items
+        context['menu'] = menu(self.request)
         return context
 
 
@@ -37,7 +37,7 @@ class AccountCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = Menu().items
+        context['menu'] = menu(self.request)
         return context
 
 
@@ -49,7 +49,7 @@ class AccountUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = Menu().items
+        context['menu'] = menu(self.request)
         return context
 
 
@@ -60,7 +60,7 @@ class AccountDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = Menu().items
+        context['menu'] = menu(self.request)
         return context
 
 

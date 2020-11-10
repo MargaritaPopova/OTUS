@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'debug_toolbar',
+    'django_registration',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 ROOT_URLCONF = 'expences.urls'
 
@@ -134,3 +137,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'

@@ -5,5 +5,10 @@
 {%  endblock %}
 kjhjhjkh
 {%  block main %}
+    {% if user %}
+    <h2>Welcome to Dashboard, {{ user }}!</h2>
+    {% else %}
     <h2>Welcome to Dashboard!</h2>
+        <p>Please proceed to <a href="{% url 'login' %}">login</a> to see the details</p>
+    {% endif %}
 {%  endblock %}

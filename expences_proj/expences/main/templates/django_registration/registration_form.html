@@ -1,7 +1,7 @@
-{% extends "base_menu.html" %}
+{% extends "main/base.html" %}
 {% load crispy_forms_filters %}
 
-{% block content %}
+{% block main %}
 
 {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
@@ -12,5 +12,7 @@
 {{ form | crispy }}
 <input type="submit" class="btn btn-primary" value="Register" />
 <input type="hidden" name="next" value="{{ next }}" />
+<input type="submit" class="btn btn-outline-primary" onclick="window.location='{% url 'main:index' %}' ; return false;" value="Cancel">
+
 </form>
 {% endblock %}
