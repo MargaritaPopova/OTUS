@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title %}
+    Account
+{% endblock %}
+{% block main %}
+
+
+<h2>{{ account }} ({{ account.id  }})</h2>
+    <p>Currently on this account: <br>{{ account.sum }} {{  account.currency.name }}</p>
+
+
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<p></p>
+<button> <a href="{% url 'account:list' %}"> Return to list </a></button>
+{% endblock %}

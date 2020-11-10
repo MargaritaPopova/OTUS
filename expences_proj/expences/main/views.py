@@ -1,50 +1,38 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from .models import Currency
 
 
-class CurrencyMainView(View):
+class Menu(View):
+    items = [
+        {'name': 'Dashboard',
+         'url': '/'},
+        {'name': 'Accounts',
+         'url':  'account/list'},
+        {'name': 'Transactions',
+         'url': 'transaction/list'},
+    ]
 
-    template_name = 'main/currency_index.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            self.items += [
+                {'name': 'Profile',
+                 'url': 'profile/'},
+                {'name': 'Logout',
+                 'url': '/'}
+            ]
+        else:
+            self.items += [{
+                'name': 'Login',
+                'url': '/'
+            }]
+
+
+class MainView(View):
+    template_name = 'main/index.html'
 
     def get(self, request):
         context = {
-            'name': 'This is the main'
+            'menu': Menu().items,
         }
         return render(request, self.template_name, context)
-
-
-class CurrencyListView(ListView):
-
-    model = Currency
-    template_name = 'main/currency_list.html'
-
-
-class CurrencyDetailView(DetailView):
-
-    model = Currency
-    template_name = 'main/currency_detail.html'
-
-
-class CurrencyCreateView(CreateView):
-    model = Currency
-    fields = ['name']
-    success_url = reverse_lazy('main:index')
-
-
-class CurrencyUpdateView(UpdateView):
-    model = Currency
-    fields = ['name']
-    success_url = reverse_lazy('main:index')
-
-
-class CurrencyDeleteView(DeleteView):
-    model = Currency
-    fields = ['name']
-    template_name = 'main/currency_confirm_delete.html'
-    success_url = reverse_lazy('main:index')
-
-

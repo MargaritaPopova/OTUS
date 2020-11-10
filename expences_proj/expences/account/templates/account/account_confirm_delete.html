@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block main %}
+
+<h1>Delete Currency</h1>
+
+<p>Are you sure you want to delete: {{ account }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete.">
+  <input type="submit" onclick="window.location='{% url 'account:index' %}' ; return false;" value="Cancel">
+</form>
+
+{% endblock %}

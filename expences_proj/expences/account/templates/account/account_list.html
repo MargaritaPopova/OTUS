@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block main %}
+
+<h1>This is a list view</h1>
+
+<li>
+        <a href="{% url 'account:create' %}">Add Account</a>
+        </li>
+{% if account_list %}
+    <ul>
+    {% for account in account_list %}
+        <li><a href="{% url 'account:detail' account.id %}">{{ account }} </a>
+        (<a href="{% url 'account:update' account.id %}">Update</a> |
+          <a href="{% url 'account:delete' account.id %}">Delete</a>) <br/>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No accounts are available.</p>
+{% endif %}
+{% endblock %}
