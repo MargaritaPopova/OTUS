@@ -149,4 +149,4 @@ redis-6.0.7/
 /Flask/templates/products/
 /Flask/views/product.py
 
-reviews_proj/venv_reviews/
+expences_proj/postgres_data/
