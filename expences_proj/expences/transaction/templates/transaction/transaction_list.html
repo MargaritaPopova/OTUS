@@ -1,24 +1,23 @@
 {% extends 'main/base.html' %}
-{% block title %} All accounts {% endblock %}
+{% block title %} All transactions {% endblock %}
 
 {% block main %}
     <div class="row">
 
-<h1>This is a list view</h1>
     </div>
     <div class="row">
-    <a href="{% url 'account:create' %}">Add Account</a>
+    <a href="{% url 'transaction:create' %}">Add Transaction</a>
     </div>
 
 
-{% if account_list %}
+{% if transaction_list %}
     <div class="row">
     <ul>
-    {% for account in account_list %}
-        <li><a href="{% url 'account:detail' account.id %}">{{ account }} </a>
-            {% if user.id == account.user.id %}
-        (<a href="{% url 'account:update' account.id %}">Update</a> |
-          <a href="{% url 'account:delete' account.id %}">Delete</a>) <br/>
+    {% for transaction in transaction_list %}
+        <li><a href="{% url 'transaction:detail' transaction.id %}">{{ transaction }} </a>
+            {% if user.id == transaction.account.user.id %}
+        (<a href="{% url 'transaction:update' transaction.id %}">Update</a> |
+          <a href="{% url 'transaction:delete' transaction.id %}">Delete</a>) <br/>
             {% endif %}
         </li>
     {% endfor %}
@@ -26,7 +25,7 @@
     </div>
 {% else %}
     <div class="row">
-    <p>No accounts are available.</p>
+    <p>No transactions are available.</p>
     </div>
 
 {% endif %}

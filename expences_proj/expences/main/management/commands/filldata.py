@@ -75,4 +75,16 @@ class Command(BaseCommand):
         )):
             Account.objects.create(sum=s, currency=curr, user=usr)
 
+        print('Creating transactions...')
+        for s, curr, acc, cat in list(zip(
+            [random.randint(1, 10000) for _ in range(10)],
+            [random.choice(Currency.objects.all()) for _ in range(10)],
+            [random.choice(Account.objects.all()) for _ in range(10)],
+            [random.choice(Category.objects.all()) for _ in range(10)]
+        )):
+            Transaction.objects.create(sum=s,
+                                       currency=curr,
+                                       account=acc,
+                                       category=cat)
+
         print('All data filled in!')

@@ -5,13 +5,14 @@
 {% block main %}
 
 
-<h2>{{ account }} ({{ account.id  }})</h2>
-    <p>Currently on this account: <br>{{ account.sum }} {{  account.currency.name }}</p>
+<h2>{{ transaction }} ({{ transaction.id  }})</h2>
+    <p>Sum: {{ transaction.sum }} {{  transaction.currency.name }}</p>
+    <p>Category: {{ transaction.category.name }}</p>
 
 
 
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <p></p>
-<button class="btn btn-primary"> <a href="{% url 'account:list' %}" class="text-white"> Return to list </a></button>
+<button class="btn btn-primary"> <a href="{% url 'transaction:list' %}" class="text-white"> Return to list </a></button>
 {% endblock %}
